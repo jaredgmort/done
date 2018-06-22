@@ -1,0 +1,15 @@
+{% extends 'stori/base.html' %}
+
+{% block body %}
+  <h2>Login</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_ul }}
+    <p>
+     	{% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+    	{% endfor %}
+    </p>   
+    <button type="submit">Sign up</button>
+  </form>
+{% endblock %}

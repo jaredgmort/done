@@ -1,0 +1,55 @@
+{% extends 'stori/index.html' %}
+{% load static from staticfiles %}
+
+
+<head>
+	{% block css %}
+	<link rel="stylesheet" type="text/css" href="/static/register.css"/>
+	{% endblock %}
+</head>
+
+
+	{% block body %}
+	<br>
+	<div>	
+		<form action="{% url 'stori:save' %}" method="post"  name="form_name" enctype="multipart/form-data">
+		{% csrf_token %}
+		
+		
+			<input type="text" placeholder="Full name" name="full_name" required style="width: 350px; font-family: Palatino;"><br><br>
+								
+			<input type="text" placeholder="Email" name="email" style="width: 350px; font-family: Palatino;"><br><br>
+							    
+			<!-- <input type="radio" id="male" name="gender"><label for="male">Male</label><br>
+			<input type="radio" id="female" name="gender"><label for="male">Female</label><br><br> -->
+
+			<input list="gender" name='gender' type="text" placeholder="Gender" style="width: 350px; font-family: Palatino;">
+ 
+			<datalist id="gender">
+		    	<option>Male</option>
+				<option>Female</option>
+			</datalist><br><br>
+	 
+	 							
+			<input id="date" type="date" placeholder="Date of birth" name="date_birth" style="width: 350px; font-family: Palatino;"><br><br>
+									
+			<input type="text" placeholder="Phone number" name="phone_number" style="width: 350px; font-family: Palatino;"><br><br>
+								
+			<input type="text" placeholder="Address" name="address" style="width: 350px; font-family: Palatino;"><br><br>
+								
+			<input type="text" placeholder="Town/City" name="town_city" style="width: 350px; font-family: Palatino;"><br><br>
+								
+			<input type="text" placeholder="Country" name="country" style="width: 350px; font-family: Palatino;"><br><br>
+								
+			<input type="text" placeholder="Occupation" name="occupation" style="width: 350px; font-family: Palatino;"><br><br>
+
+			<p>Add your picture:</p>
+			<input id ="id_image" type="file" name="image" placeholder="upload image"><br><br>
+
+	    	<button type="submit" name="submit_name" id="btn_name" value="Submit" style="width: 350px; font-family: Palatino;">Submit</button>
+			{% include 'stori/forms.html' %}	
+		</form>
+	</div>
+
+	{% endblock %}
+	
